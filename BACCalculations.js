@@ -1,9 +1,10 @@
 var profile = {
 	gender:"Male",
-	height:0,
+	height:0, // in cm
 	weight:0, // in kg
 	distribution:0,
-	BACadded: function (GofAlc) {return GofAlc/(this.weight*this.distribution)}
+	calculateDistribution: function ()
+	calculateBACadded: function (GofAlc) {return GofAlc/(this.weight*this.distribution)}
 }
 
 var dataPoint = {
@@ -13,8 +14,21 @@ var dataPoint = {
 	calculateBACatPoint: function
 }
 
+function calculateDistribution () {
+	// Distribution calculated using Seidl Formula for volume distribution of alcohol
+	// Weight is in kg
+	// Height is in cm
+	if (this.gender == "male") {
+		this.distribution = 0.31608 - 0.004821 * this.weight + 0.4623 * this.height;
+	}
+	else if (this.gender == "female") {
+		this.distribution = 0.31223 - 0.006446 * this.weight + 0.4468 * this.height;
+	}
+
+}
 
 function DataPoint(time,BACadded,BACatPoint) {
+	// Data Point Constructor
 	this.time = time;
 	this.BACadded = BACadded;
 	this.BACatPoint = BACatPoint;
