@@ -26,7 +26,6 @@ app.post('/', function(req, res) {
         height: (req.body.feet * 12) + req.body.inches,
     };
 
-
     res.render('graph', user_stats);
 })
 
