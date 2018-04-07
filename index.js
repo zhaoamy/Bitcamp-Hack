@@ -32,8 +32,8 @@ app.post('/', function(req, res) {
 
     var data = {
         gender: req.body.gender,
-        weight: req.body.weight,
-        height: (req.body.feet * 12) + req.body.inches,
+        weight: req.body.weight * 0.453592, // lbs -> kg
+        height: ((req.body.feet * 12) + req.body.inches) * 2.54, // ft in -> cm
         startTime: startTime.toLocaleString(),
         endTime: endTime.toLocaleString()
     };
