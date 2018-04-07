@@ -69,6 +69,7 @@ are slowing down. There is a real possibility of death due to respiratory arrest
 colors = {
     grey: "BFC0C0",
     dark: "465362",
+    dark_blue: "27938A",
     blue: "65D3CA",
     orange: "EF8354",
     white: "F9F8F2"
