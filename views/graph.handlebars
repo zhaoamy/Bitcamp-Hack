@@ -12,13 +12,14 @@
 
     function drawChart() {
 
-      var data = new google.visualization.DataTable();
+      var data = new google.visualization.DataTable(  ['X', 'Y', {'type': 'timeofday'}]);
       data.addColumn('number', 'Day');
       data.addColumn('number', 'Guardians of the Galaxy');
       data.addColumn('number', 'The Avengers');
       data.addColumn('number', 'Transformers: Age of Extinction');
 
       data.addRows([
+    
         [1,  37.8, 80.8, 41.8],
         [2,  30.9, 69.5, 32.4],
         [3,  25.4,   57, 25.7],
@@ -43,8 +44,7 @@
         height: 500,
         axes: {
           x: {
-            0: {side: 'bottom',
-                datacolumntype: 'timeofday'}
+            0: {side: 'bottom'}
           }
         },
         legend: {position: 'none'},
