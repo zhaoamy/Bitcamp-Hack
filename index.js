@@ -26,6 +26,14 @@ app.post('/', function(req, res) {
         height: (req.body.feet * 12) + req.body.inches,
     };
 
+    var startTime = new Date();
+    startTime.setTime(startTime.getTime() - (3*60*60*1000)) // 3 hours before current time
+    var endTime = new Date();
+    endTime.setTime(endTime.getTime() + (10*60*60*1000)) // 10 hours after current time
+
+    console.log(startTime.toLocaleString())
+    console.log(endTime.toLocaleString())
+
     res.render('graph', user_stats);
 })
 
