@@ -10,7 +10,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: #465362;
 }
 
 a, a:hover, a:focus {
@@ -41,7 +41,7 @@ a, a:hover, a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #27938A;
+    background: #465362;
     color: #F9F8F2;
     transition: all 0.3s;
 }
@@ -50,27 +50,29 @@ a, a:hover, a:focus {
     padding: 20px;
     padding-bottom: 0;
     font-size: 3em;
-    background: #27938A;
+    font-weight: bold;
+    background: #465362;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #65D3CA;
+    border-bottom: 0px solid #343E49;
 }
 
 #sidebar ul p {
     color: #F9F8F2;
-    padding-left: 20px;
-    font-size: 1.5em;
+    padding: 0 20px 0 20px;
+    font-size: 1.3em;
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 18px;
     font-size: 1.1em;
     display: block;
+    background: #343E49;
 }
 #sidebar ul li a:hover {
-    color: #27938A;
+    color: #465362;
     background: #F9F8F2;
 }
 
