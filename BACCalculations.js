@@ -1,7 +1,8 @@
 function Profile(gender,height,weight) {
-	this.gender = gender;
-	this.height = height;
-	this.weight = weight;
+	// Profile Constructor
+	this.gender = gender; // "male" or "female"
+	this.height = height; // in cm
+	this.weight = weight; // in kg
 	this.distribution = this.calculateDistribution();
 	this.calculateDistribution = calculateDistribution;
 	this.calculateBACadded = calculateBACadded;
@@ -20,6 +21,7 @@ function calculateDistribution () {
 }
 
 function calculateBACadded (GofAlc) {
+	// GofAlc in grams
 	return GofAlc/(this.weight*this.distribution);
 }
 
@@ -33,8 +35,8 @@ function DataPoint(time,BACadded,BACatPoint) {
 
 function calculateBACatPoint(prevPoint) {
 	var decayRate = 0.016;
-	var timediff = this.time-prevPoint.time;
-	var BACdecay = timediff * decayRate / 60; //Convert min to hours and then multiply by decay rate
+	var timediff = this.time.getTime()-prevPoint.time.getTime();
+	var BACdecay = (timediff / 1000 / 3600) * decayRate ; //Convert ms to hours and then multiply by decay rate
 	this.BACatPoint = prevPoint.BACatPoint + this.BACadded - BACdecay;
 }
 
