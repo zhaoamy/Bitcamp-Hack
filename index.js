@@ -13,28 +13,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 expstate.extend(app);
 app.set("state namespace", 'App');
 
+//var bac_calc = require("./BACCalculations");
+var misc = require("./misc");
+
 app.get('/', function(req, res) {
     res.render('start', {
         content: "test"
     });
 })
 
+
 app.post('/', function(req, res) {
-    var user_stats = {
+
+    var startTime = misc.roundToHour(new Date())
+    startTime.setTime(startTime.getTime() - (3*60*60*1000)) // 3 hours before current time
+    var endTime = new Date();
+    endTime.setTime(startTime.getTime() + (10*60*60*1000)) // 12 hours after startTime
+
+    var data = {
         gender: req.body.gender,
         weight: req.body.weight,
         height: (req.body.feet * 12) + req.body.inches,
+        startTime: startTime.toLocaleString(),
+        endTime: endTime.toLocaleString()
     };
 
-    var startTime = new Date();
-    startTime.setTime(startTime.getTime() - (3*60*60*1000)) // 3 hours before current time
-    var endTime = new Date();
-    endTime.setTime(endTime.getTime() + (10*60*60*1000)) // 10 hours after current time
-
-    console.log(startTime.toLocaleString())
-    console.log(endTime.toLocaleString())
-
-    res.render('graph', user_stats);
+    res.render('graph', data);
 })
 
 app.listen(3000, function() {

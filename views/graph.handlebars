@@ -2,6 +2,8 @@
     {{gender}}
     {{weight}}
     {{height}}
+    {{startTime}}
+    {{endTime}}
 </p>
 
 <script type="text/javascript">
@@ -35,8 +37,7 @@
 
       var options = {
         chart: {
-          title: 'Box Office Earnings in First Two Weeks of Opening',
-          subtitle: 'in millions of dollars (USD)'
+          title: 'BAC Over Time'
         },
         width: 900,
         height: 500,
@@ -47,14 +48,14 @@
           }
         },
         legend: {position: 'none'},
-        
+        tooltip: {isHtml: true},
       };
 
-      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+      var chart = new google.charts.Line(document.getElementById('BAC_Chart'));
 
       chart.draw(data, google.charts.Line.convertOptions(options));
     }
 
  </script>
 
- <div id="line_top_x"/>
+ <div id="BAC_Chart"/>
